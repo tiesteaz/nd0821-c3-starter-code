@@ -1,10 +1,12 @@
 name: Code Quality
 
+workflow_dispatch
+
 on:
+  workflow_dispatch
   push:
     paths:
       - "**.py"
-
 jobs:
   lint:
     name: Python Lint
