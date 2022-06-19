@@ -20,6 +20,6 @@ jobs:
           checkName: "Python Lint"
           path: .
           plugins: flake8-spellcheck
-          #config:
+          config: flake8.ini
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
