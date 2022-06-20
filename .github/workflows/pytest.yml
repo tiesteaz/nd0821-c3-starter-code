@@ -28,7 +28,7 @@ jobs:
         # uses: dariocurr/pytest-summary@9cdbcd0634fade9eb80209e687508b876be804fc
       - name: Execute Pytest
         uses: dariocurr/pytest-summary@v1
-        #with:
+        with:
           # The pytest extensions to install along pytest
           #extensions: # optional
           # The pytest options
@@ -36,6 +36,6 @@ jobs:
           # The path to the output file to create
           #output: # optional
           # The path to the folder containing the tests
-          #paths: # optional, default is tests
+          paths: "." 
           # Which tests have to be shown in the summary
           #show: # optional
