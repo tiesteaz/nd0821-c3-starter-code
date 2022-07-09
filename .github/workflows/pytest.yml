@@ -1,23 +1,15 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Code Test
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
+  workflow_dispatch:
   #push:
   #  branches: [ "master" ]
-
-  workflow_dispatch:
 
 jobs:
   python_test:
     runs-on: ubuntu-latest
     name: Pytest summary
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-            
+      - uses: actions/checkout@v3
       - name: Execute Pytest
         run: |
           python -m pytest -v
