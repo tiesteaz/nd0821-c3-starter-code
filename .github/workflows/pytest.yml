@@ -36,6 +36,6 @@ jobs:
           # The path to the output file to create
           #output: # optional
           # The path to the folder containing the tests
-          path: . 
+          paths: . 
           # Which tests have to be shown in the summary
           #show: # optional
