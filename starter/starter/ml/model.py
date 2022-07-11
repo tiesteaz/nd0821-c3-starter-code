@@ -93,7 +93,7 @@ def perform_slice_analysis(data, cat_features, trained_model, trained_encoder, t
     trained_model :   trained machine learning model
     trained_encoder : trained encoder
     trained_lb :      trained label binarizer
-    
+
     Returns
     -------
     slice_analysis : DataFrame with the precision, recall, fbeta for each unique value of categorical feature.
