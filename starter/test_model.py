@@ -19,7 +19,6 @@ def setup_module(module):
 
 @pytest.fixture(scope='session')
 def cat_features():
-    
     features = [
     "workclass",
     "education",
@@ -30,7 +29,6 @@ def cat_features():
     "sex",
     "native-country",
     ]
-    
     return features
 
 @pytest.fixture(scope='session')
@@ -49,21 +47,18 @@ def train_data(cat_features):
 
 @pytest.fixture(scope='session')
 def trained_model():
-    
     trained_model = joblib.load("model/TrainedRandomForestModel.joblib")
 
     return trained_model
 
 @pytest.fixture(scope='session')
 def trained_encoder():
-    
     trained_encoder = joblib.load("model/TrainedOneHotEncoder.joblib")
 
     return trained_encoder
 
 @pytest.fixture(scope='session')
 def trained_lb():
-    
     trained_lb = joblib.load("model/TrainedLabelBinarizer.joblib")
 
     return trained_lb
@@ -110,7 +105,7 @@ def test_inference(trained_model, test_data):
     assert len(predictions) == len(X_test)
 
 def test_perform_slice_analysis(test_data, cat_features, trained_encoder, trained_lb, trained_model):
-    
+
     _, _, orig_data = test_data
 
     analysis_DataFrame = pd.DataFrame()
