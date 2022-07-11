@@ -13,7 +13,7 @@ def test_api_locally_get():
 
     print("{0}\r\n".format(r.status_code))
     assert r.status_code == 200
-    assert r.json() == {'greeting': 'Hello World!'}
+    assert r.json() == {'greeting': 'This API provides method to execute ML model for the given input!'}
 
 def test_api_locally_post_1():
     r = client.post("/road?query=baby", json={"body": "Big"})

@@ -12,8 +12,8 @@ class MyClass(BaseModel):
 
 # Define a GET on the specified endpoint
 @app.get("/")
-async def say_hello():
-    return {"greeting": "Hello World!"}
+async def say_greeting():
+    return {"greeting": "This API provides method to execute ML model for the given input!"}
 
 
 @app.post("/{path}")

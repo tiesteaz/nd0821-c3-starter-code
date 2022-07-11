@@ -43,7 +43,7 @@ def process_data(
         Trained LabelBinarizer if training is True, otherwise returns the binarizer
         passed in.
     """
-    print(X.head())
+    #print(X.head())
 
     if label is not None:
         y = X[label]
