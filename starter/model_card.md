@@ -1,6 +1,4 @@
 # Model Card
-For additional information see the Model Card paper: https://arxiv.org/pdf/1810.03993.pdf
-
 ## Model Details
 Model creator: Andrey Baranov.
 Model date: July-2022.
@@ -22,10 +20,10 @@ Primary intended users: ML Ops engineers, and any other people interested in app
 
 ## Metrics
 Overal model performance was evaluated using test data containing 20% of dataset, and also via performance on slices.
-- overall precision: 0.73
-- overall recall: 0.63
-- overall fbeta: 0.67
-- overall accuracy: 0.86
+- Overall precision: 0.73
+- Overall recall: 0.63
+- Overall fbeta: 0.67
+- Overall accuracy: 0.86
 
 Performance overall is saved in starter/model/overall_metrics.txt
 Performance on slices is saved in starter/model/slice_analysis.xlsx
