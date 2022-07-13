@@ -16,7 +16,7 @@ from data import process_data
 def setup():
     """ This setup function for pytest ensures that cleaned csv data file,
         model, encoder and label binarizer have been created and saved in /data and /model folders
-        where tests will expect to find them
+        where tests will expect to find them.
     """
 
     # Add code to load in the data.

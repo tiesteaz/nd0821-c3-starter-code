@@ -28,5 +28,6 @@ jobs:
           if [ -f starter/requirements.txt ]; then pip install -r starter/requirements.txt; fi
 
       - name: Execute Pytest
+        working-directory: ./starter
         run: |
           pytest -v
