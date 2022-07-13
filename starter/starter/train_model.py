@@ -77,9 +77,9 @@ print_output += "overall fbeta: {0}\r\n".format(overall_fbeta)
 print_output += "overall accuracy: {0}\r\n".format(overall_accuracy)
 print_output += "\r\n"
 
-with open('overall_metrics.txt', 'w', encoding='utf-8') as text_file:
+with open('../model/overall_metrics.txt', 'w', encoding='utf-8') as text_file:
     text_file.write(print_output)
 
 #  2. Performance on slices of data
 slice_analysis = perform_slice_analysis(data, cat_features, trained_model, trained_encoder, trained_lb)
-slice_analysis.to_excel("slice_analysis.xlsx")
+slice_analysis.to_excel("../model/slice_analysis.xlsx")
