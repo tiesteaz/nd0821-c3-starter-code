@@ -27,6 +27,21 @@ jobs:
         run: |
           if [ -f starter/requirements.txt ]; then pip install -r starter/requirements.txt; fi
 
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          role-session-name: Github Test Action
+
+      - name: Configure DVC
+        uses: iterative/setup-dvc@v1
+
+      - name: Get data from S3 via DVC
+        run: |
+          dvc pull
+
       - name: Execute Pytest
         working-directory: ./starter
         run: |

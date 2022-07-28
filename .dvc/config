@@ -1,0 +1,4 @@
+[core]
+    remote = udacity-tiesteaz
+['remote "udacity-tiesteaz"']
+    url = s3://udacity-tiesteaz/nd0821-c3
