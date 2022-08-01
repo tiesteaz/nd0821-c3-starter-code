@@ -5,7 +5,7 @@ from typing import Union
 from pandas.core.frame import DataFrame
 from fastapi import FastAPI
 from pydantic import BaseModel
-from starter.ml.data import process_data
+from starter.starter.ml.data import process_data
 
 #from fastapi.responses import PlainTextResponse
 
