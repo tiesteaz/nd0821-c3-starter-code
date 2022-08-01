@@ -160,7 +160,7 @@ cython_debug/
 #.idea/
 
 # my section
-*.txt
+sample_requests.txt
 *.joblib
 *.xlsx
 *.csv
