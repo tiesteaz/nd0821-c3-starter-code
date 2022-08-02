@@ -54,7 +54,7 @@ class ModelRequest(BaseModel):
                     "hours-per-week": 40,
                     "native-country": "Poland"
                     }
-                }           
+                }
             @classmethod
             def alias_generator(cls, string: str) -> str:
                 return string.replace('_', '-')
@@ -65,7 +65,7 @@ async def say_greeting():
 
 @app.post("/inference/")
 async def perform_inference(request_data: ModelRequest):
-    
+
     request_dictionary = request_data.dict(by_alias=True)
     input_data = DataFrame(request_dictionary, index=[0])
 
@@ -73,7 +73,7 @@ async def perform_inference(request_data: ModelRequest):
     model = joblib.load("starter/model/TrainedRandomForestModel.joblib")
     encoder = joblib.load("starter/model/TrainedOneHotEncoder.joblib")
     binarizer = joblib.load("starter/model/TrainedLabelBinarizer.joblib")
-    
+
     # load list of categorical features
     cat_features = [
         "workclass",
