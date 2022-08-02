@@ -69,8 +69,6 @@ async def perform_inference(request_data: ModelRequest):
     request_dictionary = request_data.dict(by_alias=True)
     input_data = DataFrame(request_dictionary, index=[0])
 
-    print(input_data)
-
     # load trained models
     model = joblib.load("starter/model/TrainedRandomForestModel.joblib")
     encoder = joblib.load("starter/model/TrainedOneHotEncoder.joblib")
