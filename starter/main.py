@@ -12,12 +12,12 @@ from starter.starter.ml.data import process_data
 # Required for Heroku
 import os
 
-if "DYNO" in os.environ and os.path.isdir(".dvc"):
+if "DYNO" in os.environ and os.path.isdir("../.dvc"):
     print("Running DVC")
     os.system("dvc config core.no_scm true")
     if os.system("dvc pull") != 0:
         exit("dvc pull failed")
-    os.system("rm -r .dvc .apt/usr/lib/dvc")
+    os.system("rm -r ../.dvc ../.apt/usr/lib/dvc")
 
 # Instantiate the app
 app = FastAPI()
