@@ -22,10 +22,6 @@ if "DYNO" in os.environ and os.path.isdir("../.dvc"):
 # Instantiate the app
 app = FastAPI()
 
-class MyClass(BaseModel):
-    body: str
-
-
 class ModelRequest(BaseModel):
     age: int
     workclass: str
@@ -67,16 +63,9 @@ class ModelRequest(BaseModel):
                 return string.replace('_', '-')
 
 
-# Define a GET on the specified endpoint
 @app.get("/")
 async def say_greeting():
     return {"greeting": "This API provides method to execute ML model for the given input!"}
-
-
-@app.post("/{path}")
-async def insert_item(obj: MyClass, path: str, query: str):
-    return {"path": path, "body": obj.body, "query": query}
-
 
 @app.post("/inference/")
 async def perform_inference(request_data: ModelRequest):
