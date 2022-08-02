@@ -7,8 +7,6 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from starter.starter.ml.data import process_data
 
-#from fastapi.responses import PlainTextResponse
-
 # Required for Heroku
 import os
 
@@ -56,12 +54,10 @@ class ModelRequest(BaseModel):
                     "hours-per-week": 40,
                     "native-country": "Poland"
                     }
-                }
-            
+                }           
             @classmethod
             def alias_generator(cls, string: str) -> str:
                 return string.replace('_', '-')
-
 
 @app.get("/")
 async def say_greeting():
@@ -76,9 +72,9 @@ async def perform_inference(request_data: ModelRequest):
     print(input_data)
 
     # load trained models
-    model = joblib.load("./starter/model/TrainedRandomForestModel.joblib")
-    encoder = joblib.load("./starter/model/TrainedOneHotEncoder.joblib")
-    binarizer = joblib.load("./starter/model/TrainedLabelBinarizer.joblib")
+    model = joblib.load("model/TrainedRandomForestModel.joblib")
+    encoder = joblib.load("model/TrainedOneHotEncoder.joblib")
+    binarizer = joblib.load("model/TrainedLabelBinarizer.joblib")
     
     # load list of categorical features
     cat_features = [
@@ -108,6 +104,5 @@ async def perform_inference(request_data: ModelRequest):
         salary_label = ">$50K"
     elif salary_binary == 0:
         salary_label = "<=$50K"
-
 
     return {"salary": salary_label }
