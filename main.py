@@ -10,12 +10,12 @@ from starter.starter.ml.data import process_data
 # Required for Heroku
 import os
 
-if "DYNO" in os.environ and os.path.isdir("../.dvc"):
+if "DYNO" in os.environ and os.path.isdir(".dvc"):
     print("Running DVC")
     os.system("dvc config core.no_scm true")
     if os.system("dvc pull") != 0:
         exit("dvc pull failed")
-    os.system("rm -r ../.dvc ../.apt/usr/lib/dvc")
+    os.system("rm -r .dvc .apt/usr/lib/dvc")
 
 # Instantiate the app
 app = FastAPI()
@@ -72,9 +72,9 @@ async def perform_inference(request_data: ModelRequest):
     print(input_data)
 
     # load trained models
-    model = joblib.load("model/TrainedRandomForestModel.joblib")
-    encoder = joblib.load("model/TrainedOneHotEncoder.joblib")
-    binarizer = joblib.load("model/TrainedLabelBinarizer.joblib")
+    model = joblib.load("starter/model/TrainedRandomForestModel.joblib")
+    encoder = joblib.load("starter/model/TrainedOneHotEncoder.joblib")
+    binarizer = joblib.load("starter/model/TrainedLabelBinarizer.joblib")
     
     # load list of categorical features
     cat_features = [
