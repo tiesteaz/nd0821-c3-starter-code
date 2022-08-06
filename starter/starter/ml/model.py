@@ -111,7 +111,7 @@ def perform_slice_analysis(data, cat_features, trained_model, trained_encoder, t
 
     data_with_predictions = pd.DataFrame(data)
     data_with_predictions = data_with_predictions.assign(y=y, prediction=predictions)
-    print(data_with_predictions.head())
+    #print(data_with_predictions.head())
 
     analysis_columns = ['slice',
                         'cat_feature',

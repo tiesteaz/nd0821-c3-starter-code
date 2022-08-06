@@ -61,7 +61,7 @@ class ModelRequest(BaseModel):
 
 @app.get("/")
 async def say_greeting():
-    return {"greeting": "This API provides method to execute ML model for the given input!"}
+    return {"greeting": "This API provides method to execute ML model for a given input!"}
 
 @app.post("/inference/")
 async def perform_inference(request_data: ModelRequest):
