@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          if [ -f starter/requirements.txt ]; then pip install -r starter/requirements.txt; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -43,6 +43,6 @@ jobs:
           dvc pull
 
       - name: Execute Pytest
-        working-directory: ./starter
+        working-directory: .
         run: |
           pytest -v
