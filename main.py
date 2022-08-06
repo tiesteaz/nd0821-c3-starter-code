@@ -38,7 +38,7 @@ class ModelRequest(BaseModel):
 
     class Config:
             schema_extra = {
-                "example": {
+                    "example": {
                     "age": 44,
                     "workclass": "private",
                     "fnlgt": 198282,
@@ -59,11 +59,21 @@ class ModelRequest(BaseModel):
             def alias_generator(cls, string: str) -> str:
                 return string.replace('_', '-')
 
+class ModelResponse(BaseModel):
+    salary: str
+
+    class Config:
+            schema_extra = {
+                    "example": {
+                    "salary": "<=$50K"
+                    }
+                }
+
 @app.get("/")
 async def say_greeting():
     return {"greeting": "This API provides method to execute ML model for a given input!"}
 
-@app.post("/inference/")
+@app.post("/inference/", response_model=ModelResponse)
 async def perform_inference(request_data: ModelRequest):
 
     request_dictionary = request_data.dict(by_alias=True)

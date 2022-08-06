@@ -83,3 +83,4 @@ with open('../model/overall_metrics.txt', 'w', encoding='utf-8') as text_file:
 #  2. Performance on slices of data
 slice_analysis = perform_slice_analysis(data, cat_features, trained_model, trained_encoder, trained_lb)
 slice_analysis.to_excel("../model/slice_analysis.xlsx")
+slice_analysis.to_csv("../model/slice_output.txt")
