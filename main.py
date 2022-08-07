@@ -38,22 +38,22 @@ class ModelRequest(BaseModel):
 
     class Config:
             schema_extra = {
-                    "example": {
-                    "age": 44,
-                    "workclass": "private",
-                    "fnlgt": 198282,
-                    "education": "Bachelors",
-                    "education-num": 9,
-                    "marital-status": "Married-civ-spouse",
-                    "occupation": "Craft-repair",
-                    "relationship": "Wife",
-                    "race": "White",
-                    "sex": "Female",
-                    "capital-gain": 5180,
-                    "capital-loss": 0,
-                    "hours-per-week": 40,
-                    "native-country": "Poland"
-                    }
+                 "example": {
+                            "age": 44,
+                            "workclass": "private",
+                            "fnlgt": 198282,
+                            "education": "Bachelors",
+                            "education-num": 9,
+                            "marital-status": "Married-civ-spouse",
+                            "occupation": "Craft-repair",
+                            "relationship": "Wife",
+                            "race": "White",
+                            "sex": "Female",
+                            "capital-gain": 5180,
+                            "capital-loss": 0,
+                            "hours-per-week": 40,
+                            "native-country": "Poland"
+                            }
                 }
             @classmethod
             def alias_generator(cls, string: str) -> str:
@@ -64,14 +64,28 @@ class ModelResponse(BaseModel):
 
     class Config:
             schema_extra = {
-                    "example": {
+                 "example": {
                     "salary": "<=$50K"
                     }
                 }
 
-@app.get("/")
+class GreetingResponse(BaseModel):
+    greeting: str
+    model_version: str
+
+    class Config:
+            schema_extra = {
+                 "example": {
+                    "greeting": "This API provides method to execute ML model for a given input!",
+                    "model_version": "1.2"
+                    }
+                }
+
+@app.get("/", response_model=GreetingResponse)
 async def say_greeting():
-    return {"greeting": "This API provides method to execute ML model for a given input!"}
+    return {"greeting": "This API provides method to execute ML model for a given input!",
+            "model_version": "1.0"
+            }
 
 @app.post("/inference/", response_model=ModelResponse)
 async def perform_inference(request_data: ModelRequest):
