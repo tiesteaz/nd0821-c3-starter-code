@@ -10,10 +10,11 @@ client = TestClient(app)
 
 def test_api_locally_get():
     r = client.get("/")
+    response_json = r.json()
 
     #print("{0}\r\n".format(r.status_code))
     assert r.status_code == 200
-    assert r.json() == {'greeting': 'This API provides method to execute ML model for a given input!'}
+    assert response_json["greeting"] == 'This API provides method to execute ML model for a given input!'
 
 def test_api_locally_post_less_than_50k():
     r = client.post("/inference/", json={
