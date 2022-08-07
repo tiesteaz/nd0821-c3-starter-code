@@ -77,14 +77,14 @@ class GreetingResponse(BaseModel):
             schema_extra = {
                  "example": {
                     "greeting": "This API provides method to execute ML model for a given input!",
-                    "model_version": "1.3"
+                    "model_version": "1.2"
                     }
                 }
 
 @app.get("/", response_model=GreetingResponse)
 async def say_greeting():
     return {"greeting": "This API provides method to execute ML model for a given input!",
-            "model_version": "1.0"
+            "model_version": "1.3"
             }
 
 @app.post("/inference/", response_model=ModelResponse)
