@@ -77,7 +77,7 @@ class GreetingResponse(BaseModel):
             schema_extra = {
                  "example": {
                     "greeting": "This API provides method to execute ML model for a given input!",
-                    "model_version": "1.2"
+                    "model_version": "1.3"
                     }
                 }
 
